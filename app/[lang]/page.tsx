@@ -5,10 +5,15 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { getRepos, getProfile } from '@/lib/github';
+import { getDictionary } from '@/get-dictionary';
+import { Locale } from '@/i18n-config';
+import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 
-export default async function Home() {
+export default async function Home({ params }: { params: Promise<{ lang: Locale }> }) {
+  const { lang } = await params;
   const repos = await getRepos();
   const profile = await getProfile();
+  const dict = await getDictionary(lang);
 
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-indigo-500/30">
@@ -18,16 +23,23 @@ export default async function Home() {
           <div className="font-bold text-lg tracking-tighter">
             FFH<span className="text-indigo-500">.</span>
           </div>
+          
           <div className="flex items-center gap-4">
-            <Link href="https://github.com/FFHipolito" target="_blank" className="text-muted-foreground hover:text-foreground transition-colors">
-              <Github className="h-5 w-5" />
-            </Link>
-            <Link href="https://linkedin.com/in/fernando-hipólito" target="_blank" className="text-muted-foreground hover:text-foreground transition-colors">
-              <Linkedin className="h-5 w-5" />
-            </Link>
-            <Link href="mailto:contato@fernandofh.com" className="text-muted-foreground hover:text-foreground transition-colors">
-              <Mail className="h-5 w-5" />
-            </Link>
+             <div className="hidden sm:block">
+               <LanguageSwitcher currentLang={lang} />
+             </div>
+
+            <div className="flex items-center gap-4 border-l border-white/10 pl-4">
+              <Link href="https://github.com/FFHipolito" target="_blank" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Github className="h-5 w-5" />
+              </Link>
+              <Link href="https://linkedin.com/in/fernando-hipólito" target="_blank" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Linkedin className="h-5 w-5" />
+              </Link>
+              <Link href="mailto:contato@fernandofh.com" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Mail className="h-5 w-5" />
+              </Link>
+            </div>
           </div>
         </div>
       </nav>
@@ -52,59 +64,74 @@ export default async function Home() {
              </div>
           </div>
 
+          <div className="sm:hidden mb-6">
+             <LanguageSwitcher currentLang={lang} />
+          </div>
+
           <Badge variant="default" className="mb-6 px-4 py-1 text-sm border-indigo-500/20 bg-indigo-500/10 text-indigo-300">
-            Disponível para novos projetos
+            {dict.hero.status}
           </Badge>
           
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">
-            Criando o futuro <br /> da web moderna.
-          </h1>
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60" dangerouslySetInnerHTML={{ __html: dict.hero.title }} />
           
           <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
-            Olá, sou <span className="text-indigo-400 font-medium">{profile?.name || 'Fernando Fontes Hipólito'}</span>. 
+            {dict.hero.bio_part1} <span className="text-indigo-400 font-medium">{profile?.name || 'Fernando Fontes Hipólito'}</span>. 
             <br />
-            <strong>Estagiário Full Stack Developer na Suzano SA</strong> (desde Fev/2025).
+            <strong>{dict.hero.bio_role}</strong> {dict.hero.bio_since}
             <br />
-            Apaixonado por interfaces performáticas, design system e experiências de usuário excepcionais.
+            {dict.hero.bio_part2}
           </p>
+          
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link href="#projetos">
+              <Button size="lg" className="rounded-full h-12 px-8 text-base bg-indigo-600 hover:bg-indigo-700">
+                {dict.hero.cta_projects} <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+            <Link href="#contato">
+              <Button variant="outline" size="lg" className="rounded-full h-12 px-8 text-base border-white/10 hover:bg-white/5">
+                {dict.hero.cta_contact}
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 
-      <section className="py-10 px-4 bg-black/20">
+      <section className="py-20 px-4 bg-black/20">
         <div className="container mx-auto max-w-6xl">
            <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold mb-4">Minhas Stacks</h2>
-              <p className="text-muted-foreground">Tecnologias que domino e utilizo diariamente.</p>
+              <h2 className="text-3xl font-bold mb-4">{dict.stack.title}</h2>
+              <p className="text-muted-foreground">{dict.stack.subtitle}</p>
            </div>
            
            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <Card className="bg-zinc-900/50 border-zinc-800">
                 <CardHeader>
                   <Code2 className="h-8 w-8 text-indigo-500 mb-2" />
-                  <CardTitle>Frontend Moderno</CardTitle>
+                  <CardTitle>{dict.stack.frontend_title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground">React, Next.js 14+, Tailwind CSS e Framer Motion. Foco em componentização e performance.</p>
+                  <p className="text-sm text-muted-foreground">{dict.stack.frontend_desc}</p>
                 </CardContent>
               </Card>
               
               <Card className="bg-zinc-900/50 border-zinc-800">
                  <CardHeader>
                   <Terminal className="h-8 w-8 text-indigo-500 mb-2" />
-                  <CardTitle>Backend & API</CardTitle>
+                  <CardTitle>{dict.stack.backend_title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground">Node.js, Nest.js, Serverless Functions, Integrações de API REST e GraphQL. Banco de dados SQL e NoSQL.</p>
+                  <p className="text-sm text-muted-foreground">{dict.stack.backend_desc}</p>
                  </CardContent>
               </Card>
 
                <Card className="bg-zinc-900/50 border-zinc-800">
                  <CardHeader>
                   <Cpu className="h-8 w-8 text-indigo-500 mb-2" />
-                  <CardTitle>Engenharia</CardTitle>
+                  <CardTitle>{dict.stack.eng_title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground">Git Flow, CI/CD, Testes Automatizados e Otimização de Web Vitals.</p>
+                  <p className="text-sm text-muted-foreground">{dict.stack.eng_desc}</p>
                  </CardContent>
               </Card>
            </div>
@@ -115,17 +142,17 @@ export default async function Home() {
         <div className="container mx-auto max-w-6xl">
            <div className="flex items-center justify-between mb-12">
               <div>
-                <h2 className="text-3xl font-bold mb-2">Projetos Recentes</h2>
-                <p className="text-muted-foreground">Direto do GitHub API + Destaques.</p>
+                <h2 className="text-3xl font-bold mb-2">{dict.projects.title}</h2>
+                <p className="text-muted-foreground">{dict.projects.subtitle}</p>
               </div>
               <Link href="https://github.com/FFHipolito" target="_blank" className="hidden sm:inline-flex text-sm text-indigo-400 hover:text-indigo-300 items-center gap-1 transition-colors">
-                Ver todos no GitHub <ExternalLink className="h-3 w-3" />
+                {dict.projects.view_all} <ExternalLink className="h-3 w-3" />
               </Link>
            </div>
 
            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               <Card className="flex flex-col h-full bg-zinc-900/30 hover:bg-zinc-900/60 border-indigo-500/30 transition-colors group relative overflow-hidden">
-                <div className="absolute top-0 right-0 bg-indigo-600 text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg z-10">DESTAQUE</div>
+                <div className="absolute top-0 right-0 bg-indigo-600 text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg z-10">{dict.projects.featured}</div>
                 <CardHeader>
                   <div className="flex justify-between items-start">
                     <CardTitle className="truncate pr-2 group-hover:text-indigo-400 transition-colors">Task Manager</CardTitle>
@@ -143,7 +170,7 @@ export default async function Home() {
                 <CardFooter>
                   <Link href="https://task-manager-frontend-eight-rose.vercel.app/" target="_blank" className="w-full">
                     <Button variant="default" className="w-full bg-indigo-600 hover:bg-indigo-700">
-                      Ver Site <ExternalLink className="ml-2 h-4 w-4" />
+                      {dict.projects.view_demo} <ExternalLink className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>
                 </CardFooter>
@@ -158,7 +185,7 @@ export default async function Home() {
                         <Badge variant="secondary" className="text-[10px] uppercase">{repo.language || 'Code'}</Badge>
                       </div>
                       <CardDescription className="line-clamp-2 min-h-[40px]">
-                        {repo.description || "Sem descrição fornecida."}
+                        {repo.description || dict.projects.no_desc}
                       </CardDescription>
                     </CardHeader>
                     <CardContent className="flex-grow pt-0">
@@ -166,7 +193,7 @@ export default async function Home() {
                     <CardFooter>
                       <Link href={repo.html_url} target="_blank" className="w-full">
                         <Button variant="outline" className="w-full border-zinc-700 hover:bg-zinc-800 hover:text-white group-hover:border-indigo-500/30">
-                          Ver Código <Github className="ml-2 h-4 w-4" />
+                          {dict.projects.view_code} <Github className="ml-2 h-4 w-4" />
                         </Button>
                       </Link>
                     </CardFooter>
@@ -174,27 +201,27 @@ export default async function Home() {
                 ))
               ) : (
                 <div className="col-span-full text-center py-12 text-muted-foreground">
-                  <p>Não foi possível carregar os projetos no momento.</p>
+                  <p>{dict.projects.error}</p>
                 </div>
               )}
            </div>
            
            <div className="mt-8 text-center sm:hidden">
               <Link href="https://github.com/FFHipolito" target="_blank">
-                <Button variant="link">Ver todos no GitHub</Button>
+                <Button variant="link">{dict.projects.view_all}</Button>
               </Link>
            </div>
         </div>
       </section>
       
-      <footer className="py-12 border-t border-white/5 bg-black">
+      <footer className="py-12 border-t border-white/5 bg-black" id="contato">
         <div className="container mx-auto px-4 text-center">
-            <h2 className="text-2xl font-bold mb-6">Vamos trabalhar juntos?</h2>
+            <h2 className="text-2xl font-bold mb-6">{dict.footer.title}</h2>
             <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
-              Estou sempre aberto a propostas. Se você tem um projeto em mente ou apenas quer trocar uma ideia, mande um "oi".
+              {dict.footer.subtitle}
             </p>
             <div className="flex items-center justify-center gap-6 mb-12">
-               <Link href="mailto:fernandofhipolito@gmail.com" className="p-3 rounded-full bg-white/5 hover:bg-white/10 transition-colors">
+               <Link href="mailto:contato@fernandofh.com" className="p-3 rounded-full bg-white/5 hover:bg-white/10 transition-colors">
                   <Mail className="h-6 w-6" />
                </Link>
                <Link href="https://linkedin.com/in/fernando-hipólito" target="_blank" className="p-3 rounded-full bg-white/5 hover:bg-white/10 transition-colors">
@@ -205,7 +232,7 @@ export default async function Home() {
                </Link>
             </div>
             <p className="text-xs text-zinc-600">
-              © {new Date().getFullYear()} Fernando Fontes Hipólito. Built with Next.js & Tailwind.
+              {dict.footer.rights.replace('{year}', new Date().getFullYear().toString())}
             </p>
         </div>
       </footer>

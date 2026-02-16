@@ -1,0 +1,41 @@
+{
+    "nav": {
+        "projects": "Proyectos",
+        "contact": "Contacto"
+    },
+    "hero": {
+        "status": "Disponible para nuevos proyectos",
+        "title": "Creando el futuro <br /> de la web moderna.",
+        "bio_part1": "Hola, soy",
+        "bio_role": "Full Stack Developer en Suzano SA",
+        "bio_since": "(desde Feb/2025)",
+        "bio_part2": "Apasionado por interfaces de alto rendimiento, sistemas de diseño y experiencias de usuario excepcionales.",
+        "cta_projects": "Ver Proyectos",
+        "cta_contact": "Contactar"
+    },
+    "stack": {
+        "title": "Mi Stacks",
+        "subtitle": "Tecnologías que domino y uso a diario.",
+        "frontend_title": "Frontend Moderno",
+        "frontend_desc": "Especialista en React, Next.js 14+, Tailwind CSS y Framer Motion. Enfoque en componentización y rendimiento.",
+        "backend_title": "Backend y API",
+        "backend_desc": "Node.js, Funciones Serverless, Integraciones API REST y GraphQL. Bases de datos SQL y NoSQL.",
+        "eng_title": "Ingeniería",
+        "eng_desc": "Git Flow, CI/CD, Pruebas Automatizadas y Optimización de Web Vitals."
+    },
+    "projects": {
+        "title": "Proyectos Recientes",
+        "subtitle": "Directo de GitHub API + Destacados.",
+        "view_all": "Ver todos en GitHub",
+        "featured": "DESTACADO",
+        "view_demo": "Ver Demo",
+        "view_code": "Ver Código",
+        "no_desc": "Sin descripción proporcionada.",
+        "error": "No se pudieron cargar los proyectos en este momento."
+    },
+    "footer": {
+        "title": "¿Trabajamos juntos?",
+        "subtitle": "Siempre estoy abierto a propuestas. Si tienes un proyecto en mente o simplemente quieres charlar, di 'hola'.",
+        "rights": "© {year} Fernando Fontes Hipólito. Construido con Next.js & Tailwind."
+    }
+}

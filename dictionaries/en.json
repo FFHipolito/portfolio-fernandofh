@@ -1,0 +1,41 @@
+{
+    "nav": {
+        "projects": "Projects",
+        "contact": "Contact"
+    },
+    "hero": {
+        "status": "Available for new projects",
+        "title": "Building the future <br /> of the modern web.",
+        "bio_part1": "Hi, I'm",
+        "bio_role": "Full Stack Developer at Suzano SA",
+        "bio_since": "(since Feb/2025)",
+        "bio_part2": "Passionate about performant interfaces, design systems, and exceptional user experiences.",
+        "cta_projects": "View Projects",
+        "cta_contact": "Get in Touch"
+    },
+    "stack": {
+        "title": "My Stacks",
+        "subtitle": "Technologies I master and use daily.",
+        "frontend_title": "Modern Frontend",
+        "frontend_desc": "Specialist in React, Next.js 14+, Tailwind CSS, and Framer Motion. Focus on componentization and performance.",
+        "backend_title": "Backend & API",
+        "backend_desc": "Node.js, Serverless Functions, REST and GraphQL API Integrations. SQL and NoSQL databases.",
+        "eng_title": "Engineering",
+        "eng_desc": "Git Flow, CI/CD, Automated Testing, and Web Vitals Optimization."
+    },
+    "projects": {
+        "title": "Recent Projects",
+        "subtitle": "Straight from GitHub API + Highlights.",
+        "view_all": "View all on GitHub",
+        "featured": "FEATURED",
+        "view_demo": "View Demo",
+        "view_code": "View Code",
+        "no_desc": "No description provided.",
+        "error": "Could not load projects at this time."
+    },
+    "footer": {
+        "title": "Let's work together?",
+        "subtitle": "I'm always open to proposals. If you have a project in mind or just want to chat, say 'hi'.",
+        "rights": "© {year} Fernando Fontes Hipólito. Built with Next.js & Tailwind."
+    }
+}
