@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Fernando Fontes Hipólito | Portfolio
 
-## Getting Started
+![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js&logoColor=white)
+![React](https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-First, run the development server:
+> **"Criando o futuro da web moderna."**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Este repositório contém o código-fonte do meu portfólio profissional, desenvolvido com foco em **performance**, **acessibilidade** e **Visual Premium**. O projeto serve como uma demonstração prática das minhas habilidades como **Full Stack Developer** (atualmente na Suzano SA), utilizando as tecnologias mais recentes do ecossistema React.
+
+## ✨ Destaques Técnicos
+
+O projeto foi arquitetado para impressionar não apenas visualmente, mas também tecnicamente:
+
+- **⚡ Next.js 15 (App Router)**: Utilizando a arquitetura de Server Components para máxima performance e SEO.
+- **🎨 Tailwind CSS v4 & Design System**: Implementação de um tema "Dark Premium" com glassmorphism, gradientes e variáveis CSS nativas.
+- **🔄 GitHub API Integration**: Os projetos exibidos não são estáticos; eles são **buscados em tempo real** da API do GitHub, garantindo que o portfólio esteja sempre atualizado com meus últimos códigos.
+- **✨ Framer Motion**: Animações fluidas e micro-interações que elevam a experiência do usuário (UX).
+- **📱 Responsividade Total**: Layout adaptável ("Mobile First") testado em diversos dispositivos.
+- **🧩 Componentização Modular**: Arquitetura limpa com componentes reutilizáveis (Cards, Buttons, Badges) seguindo padrões de mercado.
+
+## 🛠️ Stack Tecnológica
+
+| Categoria | Tecnologia |
+|-----------|------------|
+| **Core** | Next.js 15, React 19, TypeScript |
+| **Estilização** | Tailwind CSS v4, CSS Variables |
+| **Animação** | Framer Motion |
+| **Ícones** | Lucide React |
+| **Integração** | GitHub REST API |
+
+## 🚀 Como Rodar Localmente
+
+1. **Clone o repositório:**
+   ```bash
+   git clone https://github.com/FFHipolito/portfolio-fernandofh.git
+   ```
+
+2. **Instale as dependências:**
+   ```bash
+   npm install
+   ```
+
+3. **Inicie o servidor de desenvolvimento:**
+   ```bash
+   npm run dev
+   ```
+
+4. Acesse `http://localhost:3000`.
+
+## 📂 Estrutura do Projeto
+
+```
+/
+├── app/              # Next.js App Router (Pages & Layout)
+├── components/       # UI Components (Cards, Buttons, etc.)
+├── lib/              # Utilities & API Functions (GitHub fetcher)
+└── public/           # Static Assets
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Feito com 💜 e código limpo por **Fernando Fontes Hipólito**.
+[LinkedIn](https://linkedin.com/in/fernando-hipólito) • [Email](mailto:contato@fernandofh.com)
