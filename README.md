@@ -62,4 +62,4 @@ O projeto foi arquitetado para impressionar não apenas visualmente, mas também
 ---
 
 Feito com 💜 e código limpo por **Fernando Fontes Hipólito**.
-[LinkedIn](https://linkedin.com/in/fernando-hipólito) • [Email](mailto:contato@fernandofh.com)
+[LinkedIn](https://linkedin.com/in/fernando-hipólito) • [Email](mailto:fernandofhipolito@gmail.com)

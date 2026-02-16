@@ -24,19 +24,19 @@ export default async function Home({ params }: { params: Promise<{ lang: Locale 
             FFH<span className="text-indigo-500">.</span>
           </div>
           
-          <div className="flex items-center gap-4">
-             <div className="hidden sm:block">
+          <div className="flex items-center gap-2 sm:gap-4">
+             <div>
                <LanguageSwitcher currentLang={lang} />
              </div>
 
-            <div className="flex items-center gap-4 border-l border-white/10 pl-4">
+            <div className="flex items-center gap-2 sm:gap-4 border-l border-white/10 pl-2 sm:pl-4">
               <Link href="https://github.com/FFHipolito" target="_blank" className="text-muted-foreground hover:text-foreground transition-colors">
                 <Github className="h-5 w-5" />
               </Link>
               <Link href="https://linkedin.com/in/fernando-hipólito" target="_blank" className="text-muted-foreground hover:text-foreground transition-colors">
                 <Linkedin className="h-5 w-5" />
               </Link>
-              <Link href="mailto:contato@fernandofh.com" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="mailto:fernandofhipolito@gmail.com" className="text-muted-foreground hover:text-foreground transition-colors">
                 <Mail className="h-5 w-5" />
               </Link>
             </div>
@@ -64,9 +64,7 @@ export default async function Home({ params }: { params: Promise<{ lang: Locale 
              </div>
           </div>
 
-          <div className="sm:hidden mb-6">
-             <LanguageSwitcher currentLang={lang} />
-          </div>
+
 
           <Badge variant="default" className="mb-6 px-4 py-1 text-sm border-indigo-500/20 bg-indigo-500/10 text-indigo-300">
             {dict.hero.status}
@@ -153,6 +151,16 @@ export default async function Home({ params }: { params: Promise<{ lang: Locale 
            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               <Card className="flex flex-col h-full bg-zinc-900/30 hover:bg-zinc-900/60 border-indigo-500/30 transition-colors group relative overflow-hidden">
                 <div className="absolute top-0 right-0 bg-indigo-600 text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg z-10">{dict.projects.featured}</div>
+          
+                <div className="relative w-full h-48 overflow-hidden bg-zinc-900/50">
+                   <Image 
+                     src="/images/TaskManager.png" 
+                     alt="Task Manager"
+                     fill
+                     className="object-cover transition-transform duration-500 group-hover:scale-110 opacity-80 group-hover:opacity-100"
+                   />
+                </div>
+
                 <CardHeader>
                   <div className="flex justify-between items-start">
                     <CardTitle className="truncate pr-2 group-hover:text-indigo-400 transition-colors">Task Manager</CardTitle>
@@ -178,7 +186,17 @@ export default async function Home({ params }: { params: Promise<{ lang: Locale 
 
               {repos.length > 0 ? (
                 repos.map((repo) => (
-                  <Card key={repo.id} className="flex flex-col h-full bg-zinc-900/30 hover:bg-zinc-900/60 border-zinc-800 transition-colors group">
+                  <Card key={repo.id} className="flex flex-col h-full bg-zinc-900/30 hover:bg-zinc-900/60 border-zinc-800 transition-colors group overflow-hidden">
+                    
+                    <div className="relative w-full h-48 overflow-hidden bg-zinc-900/50 border-b border-white/5">
+                       <Image 
+                         src={`https://opengraph.githubassets.com/1/FFHipolito/${repo.name}`} 
+                         alt={repo.name}
+                         fill
+                         className="object-cover transition-transform duration-500 group-hover:scale-110 opacity-60 group-hover:opacity-100 grayscale group-hover:grayscale-0"
+                       />
+                    </div>
+
                     <CardHeader>
                       <div className="flex justify-between items-start">
                         <CardTitle className="truncate pr-2 group-hover:text-indigo-400 transition-colors">{repo.name}</CardTitle>
@@ -221,7 +239,7 @@ export default async function Home({ params }: { params: Promise<{ lang: Locale 
               {dict.footer.subtitle}
             </p>
             <div className="flex items-center justify-center gap-6 mb-12">
-               <Link href="mailto:contato@fernandofh.com" className="p-3 rounded-full bg-white/5 hover:bg-white/10 transition-colors">
+               <Link href="mailto:fernandofhipolito@gmail.com" className="p-3 rounded-full bg-white/5 hover:bg-white/10 transition-colors">
                   <Mail className="h-6 w-6" />
                </Link>
                <Link href="https://linkedin.com/in/fernando-hipólito" target="_blank" className="p-3 rounded-full bg-white/5 hover:bg-white/10 transition-colors">

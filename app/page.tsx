@@ -126,6 +126,16 @@ export default async function Home() {
            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               <Card className="flex flex-col h-full bg-zinc-900/30 hover:bg-zinc-900/60 border-indigo-500/30 transition-colors group relative overflow-hidden">
                 <div className="absolute top-0 right-0 bg-indigo-600 text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg z-10">DESTAQUE</div>
+                
+                <div className="relative w-full h-48 overflow-hidden bg-zinc-900/50">
+                   <Image 
+                     src="/images/TaskManager.png" 
+                     alt="Task Manager"
+                     fill
+                     className="object-cover transition-transform duration-500 group-hover:scale-110 opacity-80 group-hover:opacity-100"
+                   />
+                </div>
+
                 <CardHeader>
                   <div className="flex justify-between items-start">
                     <CardTitle className="truncate pr-2 group-hover:text-indigo-400 transition-colors">Task Manager</CardTitle>
