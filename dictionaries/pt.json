@@ -7,11 +7,11 @@
         "status": "Disponível para novos projetos",
         "title": "Criando o futuro <br /> da web moderna.",
         "bio_part1": "Olá, sou",
-        "bio_role": "Full Stack Developer na Suzano SA",
+        "bio_role": "Estagiário Full Stack Developer na Suzano SA",
         "bio_since": "(desde Fev/2025)",
         "bio_part2": "Apaixonado por interfaces performáticas, design system e experiências de usuário excepcionais.",
         "cta_projects": "Ver Projetos",
-        "cta_contact": "Entrar em Contato"
+        "cta_contact": "Entre em Contato"
     },
     "stack": {
         "title": "Minhas Stacks",
@@ -19,7 +19,7 @@
         "frontend_title": "Frontend Moderno",
         "frontend_desc": "Especialista em React, Next.js 14+, Tailwind CSS e Framer Motion. Foco em componentização e performance.",
         "backend_title": "Backend & API",
-        "backend_desc": "Node.js, Serverless Functions, Integrações de API REST e GraphQL. Banco de dados SQL e NoSQL.",
+        "backend_desc": "Node.js, Serverless Functions, Integrações de API REST e GraphQL. Bancos de dados SQL e NoSQL.",
         "eng_title": "Engenharia",
         "eng_desc": "Git Flow, CI/CD, Testes Automatizados e Otimização de Web Vitals."
     },
@@ -31,7 +31,21 @@
         "view_demo": "Ver Site",
         "view_code": "Ver Código",
         "no_desc": "Sem descrição fornecida.",
-        "error": "Não foi possível carregar os projetos no momento."
+        "error": "Não foi possível carregar os projetos no momento.",
+        "task_manager": {
+            "title": "Task Manager",
+            "description": "Aplicação completa de gerenciamento de tarefas com interface moderna.",
+            "tech": "React • TypeScript • Tailwind",
+            "badge": "Next.js",
+            "link": "https://task-manager-frontend-eight-rose.vercel.app/"
+        },
+        "around": {
+            "title": "Around",
+            "description": "Projeto full stack de compartilhamento de fotos. Interface Around com React e Node.js.",
+            "tech": "React • Node.js • MongoDB • Express",
+            "badge": "Full Stack",
+            "link": "https://web-project-api-full-omega.vercel.app/"
+        }
     },
     "footer": {
         "title": "Vamos trabalhar juntos?",

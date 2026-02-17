@@ -31,7 +31,21 @@
         "view_demo": "View Site",
         "view_code": "View Code",
         "no_desc": "No description provided.",
-        "error": "Could not load projects at this time."
+        "error": "Could not load projects at this time.",
+        "task_manager": {
+            "title": "Task Manager",
+            "description": "Complete task management application with modern interface.",
+            "tech": "React • TypeScript • Tailwind",
+            "badge": "Next.js",
+            "link": "https://task-manager-frontend-eight-rose.vercel.app/"
+        },
+        "around": {
+            "title": "Around",
+            "description": "Full stack photo sharing project. Around interface with React and Node.js.",
+            "tech": "React • Node.js • MongoDB • Express",
+            "badge": "Full Stack",
+            "link": "https://web-project-api-full-omega.vercel.app/"
+        }
     },
     "footer": {
         "title": "Let's work together?",
