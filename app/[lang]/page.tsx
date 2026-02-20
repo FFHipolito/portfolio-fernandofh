@@ -24,6 +24,7 @@ import { getRepos, getProfile } from '@/lib/github';
 import { getDictionary } from '@/get-dictionary';
 import { Locale } from '@/i18n-config';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
+import { ThemeToggle } from '@/components/ThemeToggle';
 
 export default async function Home({ params }: { params: Promise<{ lang: Locale }> }) {
   const { lang } = await params;
@@ -42,6 +43,7 @@ export default async function Home({ params }: { params: Promise<{ lang: Locale 
           </div>
 
           <div className="flex items-center gap-2 sm:gap-4">
+            <ThemeToggle />
             <div>
               <LanguageSwitcher currentLang={lang} />
             </div>
@@ -100,9 +102,9 @@ export default async function Home({ params }: { params: Promise<{ lang: Locale 
           </Badge>
 
           <h1
-            className="text-5xl md:text-7xl font-bold tracking-tight mb-8 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60"
-            dangerouslySetInnerHTML={{ __html: dict.hero.title }}
-          />
+  className="text-5xl md:text-7xl font-bold tracking-tight mb-8 text-foreground"
+  dangerouslySetInnerHTML={{ __html: dict.hero.title }}
+/>
 
           <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
             {dict.hero.bio_part1}{' '}

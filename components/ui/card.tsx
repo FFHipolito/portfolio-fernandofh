@@ -1,26 +1,34 @@
-"use client";
+'use client';
 
 import * as React from "react"
 import { motion, HTMLMotionProps } from "framer-motion"
 import { cn } from "@/lib/utils"
+import { useTheme } from "@/lib/theme-context"
 
 const Card = React.forwardRef<
   HTMLDivElement,
   HTMLMotionProps<"div">
->(({ className, ...props }, ref) => (
-  <motion.div
-    ref={ref}
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.5 }}
-    className={cn(
-      "rounded-xl border border-white/10 bg-black/40 backdrop-blur-md p-6 shadow-sm transition-all hover:bg-white/5",
-      className
-    )}
-    {...props}
-  />
-))
+>(({ className, ...props }, ref) => {
+  const { theme } = useTheme();
+  
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className={cn(
+        "rounded-xl border p-6 shadow-sm transition-all",
+        theme === 'dark'
+          ? "bg-zinc-900/30 border-zinc-800 hover:bg-zinc-900/60 hover:border-indigo-500/30"
+          : "bg-white border-gray-200 shadow-md hover:shadow-lg hover:border-indigo-300",
+        className
+      )}
+      {...props}
+    />
+  )
+});
 Card.displayName = "Card"
 
 const CardHeader = React.forwardRef<
@@ -38,13 +46,21 @@ CardHeader.displayName = "CardHeader"
 const CardTitle = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLHeadingElement>
->(({ className, ...props }, ref) => (
-  <h3
-    ref={ref}
-    className={cn("font-semibold leading-none tracking-tight text-xl text-white", className)}
-    {...props}
-  />
-))
+>(({ className, ...props }, ref) => {
+  const { theme } = useTheme();
+  
+  return (
+    <h3
+      ref={ref}
+      className={cn(
+        "font-semibold leading-none tracking-tight text-xl",
+        theme === 'dark' ? "text-white" : "text-gray-900",
+        className
+      )}
+      {...props}
+    />
+  )
+})
 CardTitle.displayName = "CardTitle"
 
 const CardDescription = React.forwardRef<

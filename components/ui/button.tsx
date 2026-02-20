@@ -1,8 +1,9 @@
-"use client";
+'use client';
 
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
+import { useTheme } from "@/lib/theme-context"
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 cursor-pointer",
@@ -13,8 +14,7 @@ const buttonVariants = cva(
           "bg-indigo-600 text-white shadow hover:bg-indigo-700",
         destructive:
           "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
-        outline:
-          "border border-white/20 bg-transparent shadow-sm hover:bg-white/10 hover:text-white",
+        outline: "",
         secondary:
           "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
@@ -42,9 +42,17 @@ export interface ButtonProps
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
+    const { theme } = useTheme();
+    
+    const outlineClass = theme === 'dark'
+      ? "border border-white/20 bg-transparent shadow-sm hover:bg-white/10 hover:text-white"
+      : "border border-black/20 bg-transparent shadow-sm hover:bg-black/5 hover:text-black";
+
+    const variantClass = variant === 'outline' ? outlineClass : undefined;
+
     return (
       <button
-        className={cn(buttonVariants({ variant, size, className }))}
+        className={cn(buttonVariants({ variant, size, className }), variantClass)}
         ref={ref}
         {...props}
       />

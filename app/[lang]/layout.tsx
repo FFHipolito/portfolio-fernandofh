@@ -1,6 +1,7 @@
 import { Inter } from 'next/font/google';
 import '../globals.css';
 import { i18n } from '@/i18n-config';
+import { ThemeProvider } from '@/lib/theme-context';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -17,8 +18,12 @@ export default async function RootLayout({
 }) {
   const { lang } = await params;
   return (
-    <html lang={lang}>
-      <body className={inter.className}>{children}</body>
+    <html lang={lang} className="dark">
+      <body className={inter.className}>
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
