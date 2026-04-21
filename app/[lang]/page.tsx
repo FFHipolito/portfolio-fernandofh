@@ -253,6 +253,54 @@ export default async function Home({ params }: { params: Promise<{ lang: Locale 
 
               <div className="relative w-full h-48 overflow-hidden bg-zinc-900/50">
                 <Image
+                  src="/images/StarSoccer.png"
+                  alt={dict.projects.star_soccer.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110 opacity-80 group-hover:opacity-100"
+                />
+              </div>
+
+              <CardHeader>
+                <div className="flex justify-between items-start">
+                  <CardTitle className="truncate pr-2 group-hover:text-indigo-400 transition-colors">
+                    {dict.projects.star_soccer.title}
+                  </CardTitle>
+                  <Badge
+                    variant="default"
+                    className="text-[10px] uppercase bg-indigo-500/20 text-indigo-300"
+                  >
+                    {dict.projects.star_soccer.badge}
+                  </Badge>
+                </div>
+                <CardDescription className="line-clamp-2 min-h-[40px]">
+                  {dict.projects.star_soccer.description}
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="flex-grow pt-0">
+                <p className="text-xs text-muted-foreground/80 mt-2">
+                  {dict.projects.star_soccer.tech}
+                </p>
+              </CardContent>
+              <CardFooter>
+                <Link
+                  href={dict.projects.star_soccer.link}
+                  target="_blank"
+                  className="w-full"
+                >
+                  <Button variant="default" className="w-full bg-indigo-600 hover:bg-indigo-700">
+                    {dict.projects.view_demo} <ExternalLink className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </CardFooter>
+            </Card>
+
+            <Card className="flex flex-col h-full bg-zinc-900/30 hover:bg-zinc-900/60 border-indigo-500/30 transition-colors group relative overflow-hidden">
+              <div className="absolute top-0 right-0 bg-indigo-600 text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg z-10">
+                {dict.projects.featured}
+              </div>
+
+              <div className="relative w-full h-48 overflow-hidden bg-zinc-900/50">
+                <Image
                   src="/images/Around.png"
                   alt={dict.projects.around.title}
                   fill

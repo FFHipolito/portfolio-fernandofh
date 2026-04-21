@@ -39,6 +39,13 @@
             "badge": "Next.js",
             "link": "https://task-manager-frontend-eight-rose.vercel.app/"
         },
+        "star_soccer": {
+            "title": "Star Soccer",
+            "description": "Gestión completa de partidos de fútbol con integración Prisma e Vercel Postgres.",
+            "tech": "React • Node.js • Prisma • SQL",
+            "badge": "Full Stack",
+            "link": "https://web-project-star-soccer-full.vercel.app/"
+        },
         "around": {
             "title": "Around",
             "description": "Proyecto full stack para compartir fotos. Interfaz Around con React y Node.js.",
