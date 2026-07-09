@@ -58,5 +58,13 @@
         "title": "Let's work together?",
         "subtitle": "I'm always open to proposals. If you have a project in mind or just want to chat, say 'hi'.",
         "rights": "© {year} Fernando Fontes Hipólito. Built with Next.js & Tailwind."
+    },
+    "chat": {
+        "title": "Fezinho AI",
+        "online": "Online and ready",
+        "reload": "Reload conversation",
+        "typing": "Fezinho is typing...",
+        "placeholder": "Ask about the projects...",
+        "welcome": "Hi! I'm Fezinho, Fernando Hipólito's virtual assistant. How can I help you get to know his work better?"
     }
 }

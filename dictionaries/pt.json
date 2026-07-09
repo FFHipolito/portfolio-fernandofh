@@ -58,5 +58,13 @@
         "title": "Vamos trabalhar juntos?",
         "subtitle": "Estou sempre aberto a propostas. Se você tem um projeto em mente ou apenas quer trocar uma ideia, mande um 'oi'.",
         "rights": "© {year} Fernando Fontes Hipólito. Construído com Next.js & Tailwind."
+    },
+    "chat": {
+        "title": "Fezinho AI",
+        "online": "Online e pronto",
+        "reload": "Recarregar conversa",
+        "typing": "Fezinho está digitando...",
+        "placeholder": "Pergunte sobre os projetos...",
+        "welcome": "Olá! Eu sou o Fezinho, assistente virtual do Fernando Hipólito. Como posso ajudar você a conhecer melhor o trabalho dele?"
     }
 }
