@@ -1,5 +1,5 @@
 import { useChat, Message } from 'ai/react';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Send, Loader2, RefreshCw } from 'lucide-react';
 import { ChatMessage } from './ChatMessage';
 
@@ -11,7 +11,7 @@ interface ChatWindowProps {
 }
 
 export function ChatWindow({ onClose, dict }: ChatWindowProps) {
-  const { messages, input, handleInputChange, handleSubmit, isLoading, reload } = useChat({
+  const { messages, input, handleInputChange, handleSubmit, isLoading, reload, append } = useChat({
     api: '/api/chat',
     initialMessages: [
       {
@@ -23,6 +23,77 @@ export function ChatWindow({ onClose, dict }: ChatWindowProps) {
   });
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const scrollRafRef = useRef<number | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [hasDragged, setHasDragged] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
+  const stopEdgeScroll = () => {
+    if (scrollRafRef.current !== null) {
+      cancelAnimationFrame(scrollRafRef.current);
+      scrollRafRef.current = null;
+    }
+  };
+
+  useEffect(() => {
+    return () => stopEdgeScroll();
+  }, []);
+
+  const startEdgeScroll = (direction: 'left' | 'right') => {
+    if (scrollRafRef.current !== null) return;
+    const scrollStep = () => {
+      if (carouselRef.current) {
+        carouselRef.current.scrollLeft += direction === 'left' ? -3 : 3;
+        scrollRafRef.current = requestAnimationFrame(scrollStep);
+      }
+    };
+    scrollRafRef.current = requestAnimationFrame(scrollStep);
+  };
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!carouselRef.current) return;
+    setIsDragging(true);
+    setHasDragged(false);
+    setStartX(e.pageX - carouselRef.current.offsetLeft);
+    setScrollLeft(carouselRef.current.scrollLeft);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+    stopEdgeScroll();
+  };
+  
+  const handleMouseUp = () => {
+    setIsDragging(false);
+    stopEdgeScroll();
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!carouselRef.current) return;
+    
+    if (isDragging) {
+      e.preventDefault();
+      const x = e.pageX - carouselRef.current.offsetLeft;
+      const walk = (x - startX) * 2;
+      if (Math.abs(walk) > 5) setHasDragged(true);
+      carouselRef.current.scrollLeft = scrollLeft - walk;
+      return;
+    }
+
+    const rect = carouselRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const edgeThreshold = 40;
+
+    if (x < edgeThreshold) {
+      startEdgeScroll('left');
+    } else if (x > rect.width - edgeThreshold) {
+      startEdgeScroll('right');
+    } else {
+      stopEdgeScroll();
+    }
+  };
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -62,6 +133,32 @@ export function ChatWindow({ onClose, dict }: ChatWindowProps) {
           <div className="flex items-center gap-2 text-gray-400 [.light_&]:text-indigo-400 text-sm">
             <Loader2 className="h-4 w-4 animate-spin" />
             <span>{dict.typing}</span>
+          </div>
+        )}
+        {messages.length === 1 && !isLoading && dict.suggestions && (
+          <div 
+            ref={carouselRef}
+            onMouseDown={handleMouseDown}
+            onMouseLeave={handleMouseLeave}
+            onMouseUp={handleMouseUp}
+            onMouseMove={handleMouseMove}
+            className="flex gap-2 mt-4 overflow-x-auto pb-2 cursor-grab active:cursor-grabbing [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+          >
+            {dict.suggestions.map((suggestion, index) => (
+              <button
+                key={index}
+                onClick={(e) => {
+                  if (hasDragged) {
+                    e.preventDefault();
+                    return;
+                  }
+                  append({ role: 'user', content: suggestion });
+                }}
+                className="whitespace-nowrap flex-shrink-0 text-xs bg-white/10 hover:bg-white/20 [.light_&]:bg-indigo-100 [.light_&]:hover:bg-indigo-200 text-white [.light_&]:text-indigo-900 px-3 py-1.5 rounded-full transition-colors border border-white/5 [.light_&]:border-indigo-200 text-left pointer-events-auto select-none"
+              >
+                {suggestion}
+              </button>
+            ))}
           </div>
         )}
         <div ref={messagesEndRef} />

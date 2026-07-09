@@ -12,6 +12,7 @@ export interface ChatDict {
   typing: string;
   placeholder: string;
   welcome: string;
+  suggestions?: string[];
 }
 
 interface ChatWidgetProps {

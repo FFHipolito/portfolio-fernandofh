@@ -65,6 +65,12 @@
         "reload": "Recarregar conversa",
         "typing": "Fezinho está digitando...",
         "placeholder": "Pergunte sobre os projetos...",
-        "welcome": "Olá! Eu sou o Fezinho, assistente virtual do Fernando Hipólito. Como posso ajudar você a conhecer melhor o trabalho dele?"
+        "welcome": "Olá! Eu sou o Fezinho, assistente virtual do Fernando Hipólito. Como posso ajudar você a conhecer melhor o trabalho dele?",
+        "suggestions": [
+            "Quem é o Fernando?",
+            "Qual a sua formação?",
+            "O que ele faz na Suzano?",
+            "Qual o feedback de seus gestores?"
+        ]
     }
 }

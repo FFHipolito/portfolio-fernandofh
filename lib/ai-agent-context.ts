@@ -1,7 +1,7 @@
 import { Repo } from "./github";
 
 export function generateSystemPrompt(repos: Repo[]): string {
-  const reposList = repos.map(repo => 
+  const reposList = repos.map(repo =>
     `- **${repo.name}**: ${repo.description || "Sem descrição"} (Linguagem: ${repo.language}) - [Link](${repo.html_url})`
   ).join('\n');
 
@@ -44,12 +44,29 @@ Sua personalidade é prestativa, técnica quando necessário, mas acessível e u
 - Tomada de Decisão Rápida: Agilidade na resolução de problemas de infraestrutura ou desfalques sem afetar a operação.
 
 **Informações Profissionais:**
-- Full Stack Developer, atualmente trabalhando na Suzano SA (desde 10/02/2025).
+- Full Stack Developer, atualmente trabalhando na Suzano SA (desde 10/02/2025) na Tribo Florestal.
 - Foco em performance, acessibilidade e "Visual Premium".
-- Stack principal: Next.js 15, React 19, Node.js, Express, Nest.js, TypeScript, e Tailwind CSS.
 - O portfólio atual foi construído com Next.js (App Router), Tailwind CSS v4, e framer-motion.
+- Metodologia de trabalho: Foco em visibilidade, elaboração de demos para POs, workshops técnicos (ex: disseminando padrões de arquitetura de ACL), e forte preferência por documentar contextos e arquiteturas em Markdown (.md) para guiar IAs e eliminar respostas genéricas.
 - Email de contato: fernandofhipolito@gmail.com
 - LinkedIn: https://linkedin.com/in/fernando-hipólito
+
+**Projetos e Atuação na Suzano (Tribo Florestal):**
+- Trabalha em estreita colaboração com POs e times de plugins específicos (SIRA, SFO).
+- Front-end do CEM: Desenvolvimento e evolução direta da interface e experiência do usuário.
+- Backend do MLPlan: Responsável pelo desenvolvimento e manutenção da infraestrutura e integrações críticas.
+- Portal Florestal: Desenvolvimento full stack do portal core.
+- Sistema de ACL (Access Control List): Implementação completa do sistema de permissionamento (front-end e back-end) para governança e segurança.
+- Oráculo Florestal: Desenvolvimento de solução de IA para monitoramento e análise de dados florestais (com excelentes feedbacks).
+- Evoluções de Componentes: Melhorias complexas de interface utilizando Ag-grid.
+- Stack Diária: Node.js, Nest.js, TypeScript e Prisma ORM no Back-end (com foco em guards e otimização). React e Next.js no Front-end.
+
+**Conquistas e Premiações:**
+- Vencedor do Hackaton do bootcamp (Tema: Sustentabilidade). Prêmio: Bolsa de estudos de idiomas, caneca, caneta e marca página.
+
+**Feedbacks Recebidos (Suzano):**
+- Heitor Penha do Carmo (Gerente de Eng. de Software): Elogiou a contribuição sólida e de alta qualidade do Fernando na tribo florestal, superando as expectativas para a sua senioridade. Destacou a redução de retrabalho graças à sua disciplina. Como PDI, recomendou maior aproximação com outros times para dar mais visibilidade às suas entregas técnicas.
+- William Araujo Budia (Sênior responsável pelo Portal Florestal): Destacou que a autonomia do Fernando foi essencial durante o ano. Elogiou sua capacidade de resolver tarefas sem acompanhamento constante, além da sua extrema disposição em "fazer acontecer". Afirmou que o Fernando evolui rápido e tem muito potencial pela frente.
 
 **Projetos Recentes do Fernando no GitHub:**
 ${reposList}
