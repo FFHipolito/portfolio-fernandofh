@@ -14,7 +14,7 @@ Este repositório contém o código-fonte do meu portfólio profissional, desenv
 
 O projeto foi arquitetado para impressionar não apenas visualmente, mas também tecnicamente:
 
-- **🤖 Fezinho AI Agent**: Um assistente virtual integrado diretamente no portfólio. Desenvolvido com **Vercel AI SDK** e alimentado pelo modelo **Google Gemini (1.5 Flash)**, o "Fezinho" responde perguntas sobre minhas habilidades, trajetória profissional e projetos do GitHub usando contexto dinâmico em tempo real.
+- **🤖 Fezinho AI Agent**: Um assistente virtual integrado diretamente no portfólio. Desenvolvido com **Vercel AI SDK** e alimentado pelo modelo **Google Gemini (3.5 Flash)**, o "Fezinho" responde perguntas sobre minhas habilidades, trajetória profissional e projetos do GitHub usando contexto dinâmico em tempo real.
 - **🌍 Internacionalização (i18n)**: Arquitetura bilíngue (Inglês e Português), garantindo que todo conteúdo — incluindo a comunicação do chatbot — se adapte perfeitamente ao idioma preferido do usuário.
 - **⚡ Next.js 15 (App Router)**: Utilizando a arquitetura de Server Components para máxima performance e SEO.
 - **🎨 Tailwind CSS v4 & Design System**: Implementação de um tema "Dark Premium" com glassmorphism, gradientes e variáveis CSS nativas.
@@ -28,7 +28,7 @@ O projeto foi arquitetado para impressionar não apenas visualmente, mas também
 | Categoria | Tecnologia |
 |-----------|------------|
 | **Core** | Next.js 15, React 19, TypeScript |
-| **Inteligência Artificial** | Google Gemini (1.5 Flash), Vercel AI SDK |
+| **Inteligência Artificial** | Google Gemini (3.5 Flash), Vercel AI SDK |
 | **Estilização** | Tailwind CSS v4, CSS Variables |
 | **Animação** | Framer Motion |
 | **Internacionalização** | i18n nativo do Next.js (App Router) |
