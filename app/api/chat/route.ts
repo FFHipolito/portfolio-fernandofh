@@ -3,6 +3,7 @@ import { streamText } from 'ai';
 import { getRepos } from '@/lib/github';
 import { generateSystemPrompt } from '@/lib/ai-agent-context';
 
+export const runtime = 'edge';
 export const maxDuration = 30;
 
 export async function POST(req: Request) {
@@ -17,7 +18,7 @@ export async function POST(req: Request) {
     });
 
     const result = await streamText({
-      model: google('gemini-flash-latest'),
+      model: google('gemini-3.1-flash-lite'),
       system: systemPrompt,
       messages,
     });
