@@ -1,6 +1,6 @@
 import { useChat, Message } from 'ai/react';
 import { useEffect, useRef, useState } from 'react';
-import { Send, Loader2, RefreshCw } from 'lucide-react';
+import { Send, Loader2, RefreshCw, MessageSquarePlus } from 'lucide-react';
 import { ChatMessage } from './ChatMessage';
 
 import { ChatDict } from './ChatWidget';
@@ -11,7 +11,7 @@ interface ChatWindowProps {
 }
 
 export function ChatWindow({ onClose, dict }: ChatWindowProps) {
-  const { messages, input, handleInputChange, handleSubmit, isLoading, reload, append } = useChat({
+  const { messages, input, handleInputChange, handleSubmit, isLoading, reload, append, setMessages } = useChat({
     api: '/api/chat',
     initialMessages: [
       {
@@ -21,6 +21,16 @@ export function ChatWindow({ onClose, dict }: ChatWindowProps) {
       }
     ]
   });
+
+  const handleNewChat = () => {
+    setMessages([
+      {
+        id: 'welcome-msg',
+        role: 'assistant',
+        content: dict.welcome
+      }
+    ]);
+  };
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -64,7 +74,7 @@ export function ChatWindow({ onClose, dict }: ChatWindowProps) {
     setIsDragging(false);
     stopEdgeScroll();
   };
-  
+
   const handleMouseUp = () => {
     setIsDragging(false);
     stopEdgeScroll();
@@ -72,7 +82,7 @@ export function ChatWindow({ onClose, dict }: ChatWindowProps) {
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!carouselRef.current) return;
-    
+
     if (isDragging) {
       e.preventDefault();
       const x = e.pageX - carouselRef.current.offsetLeft;
@@ -104,7 +114,7 @@ export function ChatWindow({ onClose, dict }: ChatWindowProps) {
   }, [messages, isLoading]);
 
   return (
-    <div className="flex flex-col h-[420px] w-[calc(100vw-3rem)] sm:w-[400px] rounded-2xl bg-[#0F172A]/90 [.light_&]:bg-white/95 backdrop-blur-xl border border-white/10 [.light_&]:border-indigo-200 shadow-2xl [.light_&]:shadow-xl [.light_&]:shadow-indigo-100/50 overflow-hidden">
+    <div className="flex flex-col h-[600px] w-[calc(100vw-3rem)] sm:w-[400px] md:w-[450px] lg:w-[480px] rounded-2xl bg-[#0F172A]/90 [.light_&]:bg-white/95 backdrop-blur-xl border border-white/10 [.light_&]:border-indigo-200 shadow-2xl [.light_&]:shadow-xl [.light_&]:shadow-indigo-100/50 overflow-hidden">
       <div className="flex items-center justify-between px-4 py-3 bg-white/5 [.light_&]:bg-indigo-50/80 border-b border-white/10 [.light_&]:border-indigo-200">
         <div className="flex items-center gap-2">
           <div className="relative flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-tr from-purple-600 to-blue-500">
@@ -116,13 +126,22 @@ export function ChatWindow({ onClose, dict }: ChatWindowProps) {
             <p className="text-xs text-gray-400 [.light_&]:text-indigo-500 leading-none">{dict.online}</p>
           </div>
         </div>
-        <button
-          onClick={() => reload()}
-          className="p-2 text-gray-400 hover:text-white [.light_&]:text-indigo-400 [.light_&]:hover:text-indigo-700 transition-colors rounded-full hover:bg-white/10 [.light_&]:hover:bg-indigo-100"
-          title={dict.reload}
-        >
-          <RefreshCw className="h-4 w-4" />
-        </button>
+        <div className="flex items-center gap-1">
+          <button
+            onClick={handleNewChat}
+            className="p-2 text-gray-400 hover:text-white [.light_&]:text-indigo-400 [.light_&]:hover:text-indigo-700 transition-colors rounded-full hover:bg-white/10 [.light_&]:hover:bg-indigo-100"
+            title={dict.new_chat || "Nova conversa"}
+          >
+            <MessageSquarePlus className="h-4 w-4" />
+          </button>
+          <button
+            onClick={() => reload()}
+            className="p-2 text-gray-400 hover:text-white [.light_&]:text-indigo-400 [.light_&]:hover:text-indigo-700 transition-colors rounded-full hover:bg-white/10 [.light_&]:hover:bg-indigo-100"
+            title={dict.reload}
+          >
+            <RefreshCw className="h-4 w-4" />
+          </button>
+        </div>
       </div>
 
       <div className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-thin scrollbar-thumb-purple-600/50 scrollbar-track-transparent">
@@ -136,7 +155,7 @@ export function ChatWindow({ onClose, dict }: ChatWindowProps) {
           </div>
         )}
         {messages.length === 1 && !isLoading && dict.suggestions && (
-          <div 
+          <div
             ref={carouselRef}
             onMouseDown={handleMouseDown}
             onMouseLeave={handleMouseLeave}

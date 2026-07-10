@@ -25,6 +25,7 @@ import { getDictionary } from '@/get-dictionary';
 import { Locale } from '@/i18n-config';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import { HeroActions } from '@/components/HeroActions';
 
 export default async function Home({ params }: { params: Promise<{ lang: Locale }> }) {
   const { lang } = await params;
@@ -118,25 +119,10 @@ export default async function Home({ params }: { params: Promise<{ lang: Locale 
             {dict.hero.bio_part2}
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="#projetos">
-              <Button
-                size="lg"
-                className="rounded-full h-12 px-8 text-base bg-indigo-600 hover:bg-indigo-700"
-              >
-                {dict.hero.cta_projects} <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </Link>
-            <Link href="#contato">
-              <Button
-                variant="outline"
-                size="lg"
-                className="rounded-full h-12 px-8 text-base border-white/10 hover:bg-white/5"
-              >
-                {dict.hero.cta_contact}
-              </Button>
-            </Link>
-          </div>
+          <HeroActions 
+            projectsText={dict.hero.cta_projects} 
+            contactText={dict.hero.cta_contact} 
+          />
         </div>
       </section>
 

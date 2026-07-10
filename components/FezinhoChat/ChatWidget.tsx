@@ -9,6 +9,7 @@ export interface ChatDict {
   title: string;
   online: string;
   reload: string;
+  new_chat?: string;
   typing: string;
   placeholder: string;
   welcome: string;
