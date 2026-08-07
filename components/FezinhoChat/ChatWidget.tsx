@@ -40,7 +40,7 @@ export function ChatWidget({ dict }: ChatWidgetProps) {
   }, [isOpen]);
 
   return (
-    <div ref={widgetRef} className="fixed bottom-4 right-6 z-50 flex flex-col items-end gap-2">
+    <div ref={widgetRef} className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end gap-2">
       <motion.div
         initial={false}
         animate={isOpen ? { opacity: 1, y: 0, scale: 1, pointerEvents: "auto" } : { opacity: 0, y: 20, scale: 0.9, pointerEvents: "none" }}

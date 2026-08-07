@@ -69,9 +69,9 @@
         "welcome": "Olá! Eu sou o Fezinho, assistente virtual do Fernando Hipólito. Como posso ajudar você a conhecer melhor o trabalho dele?",
         "suggestions": [
             "Quem é o Fernando?",
-            "Qual a sua formação?",
+            "Quais os feedbacks recebidos?",
             "O que ele faz na Suzano?",
-            "Qual o feedback de seus gestores?"
+            "Qual a sua formação?"
         ]
     }
 }

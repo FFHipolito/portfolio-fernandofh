@@ -30,7 +30,7 @@ export function ChatMessage({ role, content }: ChatMessageProps) {
         {isUser ? (
           <p className="whitespace-pre-wrap">{content}</p>
         ) : (
-          <div className="text-gray-200 [.light_&]:text-indigo-900 [&>p]:mb-3 [&>p:last-child]:mb-0 [&>ul]:mb-3 [&>ul]:list-disc [&>ul]:pl-5 [&>li]:mb-1 [&>strong]:text-white [.light_&]:[&>strong]:text-indigo-950">
+          <div className="text-gray-200 [.light_&]:text-indigo-900 [&>p]:mb-4 [&>p:last-child]:mb-0 [&>ul]:mb-3 [&>ul]:list-disc [&>ul]:pl-5 [&>li]:mb-1 [&>strong]:text-white [.light_&]:[&>strong]:text-indigo-950">
             <ReactMarkdown remarkPlugins={[remarkGfm]}>
               {content}
             </ReactMarkdown>

@@ -1,6 +1,6 @@
 import { useChat, Message } from 'ai/react';
 import { useEffect, useRef, useState } from 'react';
-import { Send, Loader2, RefreshCw, MessageSquarePlus } from 'lucide-react';
+import { Send, Loader2, RefreshCw, MessageSquarePlus, X } from 'lucide-react';
 import { ChatMessage } from './ChatMessage';
 
 import { ChatDict } from './ChatWidget';
@@ -114,7 +114,7 @@ export function ChatWindow({ onClose, dict }: ChatWindowProps) {
   }, [messages, isLoading]);
 
   return (
-    <div className="flex flex-col h-[600px] w-[calc(100vw-3rem)] sm:w-[400px] md:w-[450px] lg:w-[480px] rounded-2xl bg-[#0F172A]/90 [.light_&]:bg-white/95 backdrop-blur-xl border border-white/10 [.light_&]:border-indigo-200 shadow-2xl [.light_&]:shadow-xl [.light_&]:shadow-indigo-100/50 overflow-hidden">
+    <div className="flex flex-col h-[calc(100dvh-120px)] sm:h-[600px] max-h-[600px] min-h-[350px] w-[calc(100vw-2rem)] sm:w-[480px] md:w-[540px] lg:w-[600px] rounded-2xl bg-[#0F172A]/90 [.light_&]:bg-white/95 backdrop-blur-xl border border-white/10 [.light_&]:border-indigo-200 shadow-2xl [.light_&]:shadow-xl [.light_&]:shadow-indigo-100/50 overflow-hidden">
       <div className="flex items-center justify-between px-4 py-3 bg-white/5 [.light_&]:bg-indigo-50/80 border-b border-white/10 [.light_&]:border-indigo-200">
         <div className="flex items-center gap-2">
           <div className="relative flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-tr from-purple-600 to-blue-500">
@@ -140,6 +140,13 @@ export function ChatWindow({ onClose, dict }: ChatWindowProps) {
             title={dict.reload}
           >
             <RefreshCw className="h-4 w-4" />
+          </button>
+          <button
+            onClick={onClose}
+            className="p-2 text-gray-400 hover:text-white [.light_&]:text-indigo-400 [.light_&]:hover:text-indigo-700 transition-colors rounded-full hover:bg-white/10 [.light_&]:hover:bg-indigo-100"
+            title="Fechar"
+          >
+            <X className="h-4 w-4" />
           </button>
         </div>
       </div>
@@ -186,7 +193,7 @@ export function ChatWindow({ onClose, dict }: ChatWindowProps) {
       <form onSubmit={handleSubmit} className="p-3 bg-white/5 [.light_&]:bg-indigo-50/80 border-t border-white/10 [.light_&]:border-indigo-200">
         <div className="relative flex items-center">
           <input
-            className="w-full bg-white/10 [.light_&]:bg-white text-white [.light_&]:text-indigo-950 text-sm rounded-full pl-4 pr-12 py-3 border border-transparent [.light_&]:border-indigo-100 outline-none focus:ring-2 focus:ring-purple-500/50 transition-all placeholder:text-gray-400 [.light_&]:placeholder:text-indigo-300 shadow-none [.light_&]:shadow-sm"
+            className="w-full bg-white/10 [.light_&]:bg-white text-white [.light_&]:text-indigo-950 text-base sm:text-sm rounded-full pl-4 pr-12 py-3 border border-transparent [.light_&]:border-indigo-100 outline-none focus:ring-2 focus:ring-purple-500/50 transition-all placeholder:text-gray-400 [.light_&]:placeholder:text-indigo-300 shadow-none [.light_&]:shadow-sm"
             value={input}
             onChange={handleInputChange}
             placeholder={dict.placeholder}
