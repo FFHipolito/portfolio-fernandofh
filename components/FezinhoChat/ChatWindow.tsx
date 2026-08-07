@@ -114,7 +114,7 @@ export function ChatWindow({ onClose, dict }: ChatWindowProps) {
   }, [messages, isLoading]);
 
   return (
-    <div className="flex flex-col h-[calc(100dvh-120px)] sm:h-[600px] max-h-[600px] min-h-[350px] w-[calc(100vw-2rem)] sm:w-[480px] md:w-[540px] lg:w-[600px] rounded-2xl bg-[#0F172A]/90 [.light_&]:bg-white/95 backdrop-blur-xl border border-white/10 [.light_&]:border-indigo-200 shadow-2xl [.light_&]:shadow-xl [.light_&]:shadow-indigo-100/50 overflow-hidden">
+    <div className="flex flex-col h-[calc(100dvh-140px)] max-h-[600px] min-h-[300px] w-[calc(100vw-2rem)] sm:w-[480px] md:w-[540px] lg:w-[600px] rounded-2xl bg-[#0F172A]/90 [.light_&]:bg-white/95 backdrop-blur-xl border border-white/10 [.light_&]:border-indigo-200 shadow-2xl [.light_&]:shadow-xl [.light_&]:shadow-indigo-100/50 overflow-hidden">
       <div className="flex items-center justify-between px-4 py-3 bg-white/5 [.light_&]:bg-indigo-50/80 border-b border-white/10 [.light_&]:border-indigo-200">
         <div className="flex items-center gap-2">
           <div className="relative flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-tr from-purple-600 to-blue-500">
