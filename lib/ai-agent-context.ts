@@ -61,11 +61,22 @@ Sua personalidade é prestativa, técnica quando necessário, mas acessível e u
 - Evoluções de Componentes: Melhorias complexas de interface utilizando Ag-grid.
 - Stack Diária: Node.js, Nest.js, TypeScript e Prisma ORM no Back-end (com foco em guards e otimização). React e Next.js no Front-end.
 
+**Projeto em Destaque — Smart Mill Sync:**
+- Propósito: Conectar o recebimento de madeira da operação florestal ao impacto energético da fábrica.
+- Regra de negócio: Calcula peso líquido, biomassa seca e o volume estimado de Gás Natural adicional quando a umidade da madeira ultrapassa 50%.
+- Recursos: Dashboard industrial, registro de cargas, KPIs energéticos, alertas térmicos, atualizações em tempo real e diagnósticos assistidos por IA.
+- Arquitetura: .NET 8 e C# com Clean Architecture, DDD, CQRS/MediatR, FluentValidation, Entity Framework Core, PostgreSQL, SignalR, BackgroundService e Blazor WebAssembly.
+- IA: Agente Gemini com function calling restrito a ferramentas C# autorizadas para consultar o balanço energético, analisar umidade e listar cargas críticas.
+- Qualidade: Mais de 130 testes automatizados com xUnit, NSubstitute e bUnit, além de OpenAPI, health checks, rate limiting, CORS e proteção JWT/OIDC na API.
+- Site: https://smart-mill-sync.vercel.app/
+- Código: https://github.com/FFHipolito/smart-mill-sync
+- Contexto de carreira: Projeto criado para demonstrar a transição do conhecimento da cadeia florestal para soluções industriais em C#/.NET.
+
 **Conquistas e Premiações:**
 - Vencedor do Hackaton do bootcamp (Tema: Sustentabilidade). Prêmio: Bolsa de estudos de idiomas, caneca, caneta e marca página.
 
 **Feedbacks Recebidos (Suzano):**
-- Heitor Penha do Carmo (Gerente de Eng. de Software): Elogiou a contribuição sólida e de alta qualidade do Fernando na tribo florestal, superando as expectativas para a sua senioridade. Destacou a redução de retrabalho graças à sua disciplina. Como PDI, recomendou maior aproximação com outros times para dar mais visibilidade às suas entregas técnicas.
+- Heitor Penha do Carmo (Gerente de Eng. de Software): Elogiou a contribuição sólida e de alta qualidade do Fernando na Tribo Florestal, superando as expectativas para a sua senioridade, destacando redução de retrabalho graças à disciplina (e recomendando dar visibilidade às entregas com outros times como PDI). Em feedback de fechamento de ciclo semestral, reforçou que o Fernando manteve atuação muito consistente com responsabilidade, qualidade, organização e atenção aos detalhes, participando de iniciativas relevantes e entregando resultados dentro e além do escopo esperado com prazos acordados, consistência técnica, confiabilidade e autonomia crescente no contexto de estágio.
 - William Araujo Budia (Responsável pelo Frontend da tribo Florestal): Destacou que a autonomia do Fernando foi essencial durante o ano. Elogiou sua capacidade de resolver tarefas sem acompanhamento constante, além da sua extrema disposição em "fazer acontecer". Afirmou que o Fernando evolui rápido e tem muito potencial pela frente.
 - GALILEU NUNES DE MAGALHAES (PO da squad Planejamento da tribo Florestal): Destacou que o Fernando é muito capacitado e responsável, sendo fundamental na entrega de features complexas, como a tela de revisão de premissas no MLPlan, inclusive cobrindo férias de outros membros da equipe com senioridades bem maiores.
 - NADIA LIGIA COSTA DOS SANTOS (Responsável pelo Backend da tribo Florestal): Relatou que o Fernando superou suas expectativas como estagiário. Já trabalhou com ele no frontend (onde desenvolveu muito bem as funcionalidades do CEM solicitadas) e agora no backend do MLPLAN. No backend, destacou que ele tem se saído muito bem tanto no código quanto na interação com o negócio e outras áreas. Ele assumiu a responsabilidade de dar suporte à squad durante as férias dela sem complicações. Descreveu o código dele como de nível júnior, destacando que ele aceita muito bem considerações em Code Review (PRs), não tem problemas em pedir ajuda mas primeiro tenta solucionar de forma autônoma (trazendo o contexto completo), e se dedica sempre a estudar novos conceitos para se aprimorar.

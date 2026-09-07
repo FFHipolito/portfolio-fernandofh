@@ -33,7 +33,10 @@ export default async function Home({ params }: { params: Promise<{ lang: Locale 
   const profile = await getProfile();
   const dict = await getDictionary(lang);
 
-  let reposToShow = repos.filter(repo => repo.description);
+  const featuredRepositories = new Set(['smart-mill-sync']);
+  const reposToShow = repos.filter(
+    repo => repo.description && !featuredRepositories.has(repo.name.toLowerCase()),
+  );
 
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-indigo-500/30">
@@ -184,6 +187,56 @@ export default async function Home({ params }: { params: Promise<{ lang: Locale 
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <Card className="flex flex-col h-full bg-zinc-900/30 hover:bg-zinc-900/60 border-emerald-500/30 transition-colors group relative overflow-hidden">
+              <div className="absolute top-0 right-0 bg-emerald-600 text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg z-10">
+                {dict.projects.featured}
+              </div>
+
+              <div className="relative w-full h-48 overflow-hidden bg-zinc-900/50">
+                <Image
+                  src="/images/smart-mill-sync-cover.png"
+                  alt={dict.projects.smart_mill_sync.title}
+                  fill
+                  sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                  className="object-cover object-top transition-transform duration-500 group-hover:scale-105 opacity-90 group-hover:opacity-100"
+                />
+              </div>
+
+              <CardHeader>
+                <div className="flex justify-between items-start">
+                  <CardTitle className="truncate pr-2 group-hover:text-emerald-400 transition-colors">
+                    {dict.projects.smart_mill_sync.title}
+                  </CardTitle>
+                  <Badge
+                    variant="default"
+                    className="text-[10px] uppercase bg-emerald-500/20 text-emerald-300"
+                  >
+                    {dict.projects.smart_mill_sync.badge}
+                  </Badge>
+                </div>
+                <CardDescription className="line-clamp-3 min-h-[60px]">
+                  {dict.projects.smart_mill_sync.description}
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="flex-grow pt-0">
+                <p className="text-xs text-muted-foreground/80 mt-2">
+                  {dict.projects.smart_mill_sync.tech}
+                </p>
+              </CardContent>
+              <CardFooter className="grid grid-cols-2 gap-2">
+                <Link href={dict.projects.smart_mill_sync.link} target="_blank" className="w-full">
+                  <Button variant="default" className="w-full bg-emerald-600 hover:bg-emerald-700">
+                    {dict.projects.view_demo} <ExternalLink className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+                <Link href={dict.projects.smart_mill_sync.repository} target="_blank" className="w-full">
+                  <Button variant="outline" className="w-full border-zinc-700 hover:bg-zinc-800 hover:text-white">
+                    {dict.projects.view_code} <Github className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </CardFooter>
+            </Card>
+
             <Card className="flex flex-col h-full bg-zinc-900/30 hover:bg-zinc-900/60 border-indigo-500/30 transition-colors group relative overflow-hidden">
               <div className="absolute top-0 right-0 bg-indigo-600 text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg z-10">
                 {dict.projects.featured}

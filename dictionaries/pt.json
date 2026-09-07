@@ -32,6 +32,14 @@
         "view_code": "Ver Código",
         "no_desc": "Sem descrição fornecida.",
         "error": "Não foi possível carregar os projetos no momento.",
+        "smart_mill_sync": {
+            "title": "Smart Mill Sync",
+            "description": "Plataforma industrial que conecta o recebimento de madeira ao impacto energético da fábrica, estima a compensação de Gás Natural e oferece diagnósticos assistidos por IA.",
+            "tech": ".NET 8 • C# • Blazor • PostgreSQL • SignalR • Gemini",
+            "badge": "Full Stack .NET",
+            "link": "https://smart-mill-sync.vercel.app/",
+            "repository": "https://github.com/FFHipolito/smart-mill-sync"
+        },
         "task_manager": {
             "title": "Task Manager",
             "description": "Aplicação completa de gerenciamento de tarefas com interface moderna.",
